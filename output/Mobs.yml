@@ -1,0 +1,71 @@
+pages:
+  page1:
+    items:
+      0:
+        material: ARROW
+        buy: 0.3
+        sell: 0.025
+      1:
+        material: BONE
+        buy: 3.0
+        sell: 0.03
+      2:
+        material: ROTTEN_FLESH
+        buy: 0.35
+        sell: 0.03
+      3:
+        material: GUNPOWDER
+        buy: 0.1
+        sell: 0.08
+      4:
+        material: STRING
+        buy: 0.5
+        sell: 0.03
+      5:
+        material: SPIDER_EYE
+        buy: 0.4
+        sell: 0.03
+      6:
+        material: ENDER_PEARL
+        buy: 0.3
+        sell: 0.015
+      7:
+        material: SLIME_BALL
+        buy: 3.0
+        sell: 0.1
+      8:
+        material: MAGMA_CREAM
+        buy: 1.0
+        sell: 0.08
+      9:
+        material: BREEZE_ROD
+        buy: 6.0
+        sell: 0.5
+      10:
+        material: BLAZE_ROD
+        buy: 2.0
+        sell: 0.14
+      11:
+        material: BLAZE_POWDER
+        buy: 1.0
+        sell: 0.07
+      12:
+        material: GHAST_TEAR
+        buy: 24.0
+        sell: 2.0
+      13:
+        material: FEATHER
+        buy: 0.5
+        sell: 0.04
+      14:
+        material: PHANTOM_MEMBRANE
+        buy: 3.0
+        sell: 0.15
+      15:
+        material: RABBIT_FOOT
+        buy: 0.0
+        sell: 0.3
+      16:
+        material: RABBIT_HIDE
+        buy: 1.0
+        sell: 0.08
