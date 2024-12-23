@@ -47,7 +47,7 @@ for csv_file in os.listdir(csv_directory):
 
         for index, row in df.iterrows():
             items[item_count % page_size] = OrderedDict({
-                'material': row['material'],
+                'material': '_'.join(row['material'].strip().split()).upper(),
                 'buy': row['buy'],
                 'sell': row['sell']
             })
