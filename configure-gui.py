@@ -5,6 +5,11 @@ from collections import OrderedDict
 
 page_size = 29
 
+def convert_to_int_or_default(value):
+    if pd.isna(value) or pd.to_numeric(value) <= 0:
+        return int(-1)
+    return value
+
 # Custom representer for OrderedDict
 def represent_ordereddict(dumper, data):
     return dumper.represent_dict(data.items())
@@ -33,11 +38,18 @@ for csv_file in os.listdir(csv_directory):
         df.columns = df.columns.str.lower()
 
         # Replace commas with dots and remove dollar signs
-        df = df.replace({',': '.', '$': ''}, regex=True)
+        df = df.replace({',': '.', r'\$': ''}, regex=True)
 
-        # Convert buy and sell columns to floats, coercing errors to NaN
-        df['buy'] = pd.to_numeric(df['buy'], errors='coerce').fillna(0.0)
-        df['sell'] = pd.to_numeric(df['sell'], errors='coerce').fillna(0.0)
+        # Convert buy and sell columns to floats
+        # df['buy'] = pd.to_numeric(df['buy'], errors='raise')
+        # df['sell'] = pd.to_numeric(df['sell'], errors='raise')
+
+        df['buy'] = df['buy'].apply(convert_to_int_or_default)
+        df['sell'] = df['sell'].apply(convert_to_int_or_default)
+
+        # Ensure buy and sell prices are -1 if they are 0 or less
+        # df.loc[df['buy'] <= 0, 'buy'] = -1
+        # df.loc[df['sell'] <= 0, 'sell'] = -1
 
         # Create ordered dictionary structure for YAML
         pages = OrderedDict()
