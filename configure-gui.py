@@ -8,7 +8,7 @@ page_size = 29
 def convert_to_int_or_default(value):
     if pd.isna(value) or pd.to_numeric(value) <= 0:
         return int(-1)
-    return value
+    return float(value)
 
 # Custom representer for OrderedDict
 def represent_ordereddict(dumper, data):
